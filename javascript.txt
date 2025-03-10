@@ -1,0 +1,32 @@
+// Authentication handling
+document.getElementById("authForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    document.getElementById("authMessage").textContent = "Login successful!";
+});
+
+// Chatbot interaction
+function sendMessage() {
+    let input = document.getElementById("userInput").value;
+    let chatBox = document.getElementById("chat");
+    if (input.trim() !== "") {
+        chatBox.innerHTML += `<p><strong>You:</strong> ${input}</p>`;
+        document.getElementById("userInput").value = "";
+        
+        setTimeout(() => {
+            chatBox.innerHTML += `<p><strong>AI:</strong> I'm here for you. Take a deep breath. 💙</p>`;
+        }, 1000);
+    }
+}
+
+// Self-care tips generator
+function generateSelfCareTip() {
+    const tips = [
+        "Take a deep breath and drink some water.",
+        "Write down your feelings in a journal.",
+        "Listen to your favorite music and relax.",
+        "Go for a short walk to clear your mind.",
+        "Watch a feel-good movie or show."
+    ];
+    let randomTip = tips[Math.floor(Math.random() * tips.length)];
+    document.getElementById("tip").textContent = randomTip;
+}
